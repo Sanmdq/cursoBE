@@ -6,8 +6,16 @@
 // peticiones HTTP 
 // para esto necesitamos primero crear un servidor
 
+const PORT = process.env.PORT || 3000
 
+/*
+console.log({PORT})
+app.listen(PORT, function() {
+    console.log("Servidor escuchando en el puerto ", PORT)
+})
+*/
 
+const { appendFile } = require('fs');
 var http = require('http');
 var dt = require('./moduloFechas');
 
@@ -15,7 +23,7 @@ const servidor = http.createServer(function (req, res) {
     res.writeHead(200, { 'content-type': 'text/plain'});
     res.end('hola mundo!');
 });
-servidor.listen(3000);
+servidor.listen(PORT);
 
 /*
 http.createServer(function (req,res) {
@@ -25,4 +33,4 @@ http.createServer(function (req,res) {
 }).listen(3000);
 */
 
-console.log('Servidor escuchando por el puerto 3000...');
+console.log('Servidor escuchando por el puerto ', PORT);
